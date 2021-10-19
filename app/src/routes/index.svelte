@@ -45,16 +45,16 @@
 {/if}
 
 <section
-	class="w-full {typeof guessedCorrectly !== 'undefined' && !guessedCorrectly && 'animate-shake'}"
+	class="relative top-12 lg:top-0 w-full mt-32 mb-12 lg:mt-0 {typeof guessedCorrectly !== 'undefined' && !guessedCorrectly && 'animate-shake'}"
 >
 	{#if visible}
 		<h1
 			transition:fade
-			class="text-center uppercase text-4xl md:text-5xl lg:text-6xl mx-auto my-12 text-white font-semibold"
+			class="text-center uppercase text-2xl md:text-5xl lg:text-6xl mx-auto py-12 text-white font-semibold"
 		>
 			Guess the progress
 		</h1>
-		<div class="px-40 mt-24">
+		<div class="px-10 lg:px-40 lg:mt-24">
 			<ProgressBar />
 		</div>
 		{#if typeof guessedCorrectly !== 'undefined' && !guessedCorrectly}
@@ -72,7 +72,7 @@
 		{:else}
 			<div
 				transition:fade
-				class="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center mx-auto mt-24 w-1/2 lg:w-3/4"
+				class="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center mx-auto mt-12 lg:mt-24 w-1/2 lg:w-3/4"
 			>
 				<button
 					on:click={() => checkGuess(values[0])}
