@@ -15,7 +15,6 @@
 	let guessedCorrectly;
 
 	const correctValue = toInt($progressStore);
-	console.log('************ ', correctValue);
 
 	onMount(() => {
 		visible = true;
