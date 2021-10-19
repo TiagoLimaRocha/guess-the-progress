@@ -19,7 +19,9 @@
 	});
 
 	for (let i = 0; i < 4; i++) {
-		if (i === 0) values.push(toInt($progressStore));
+		const correctValue = toInt($progressStore)
+		if (i === 0) values.push(correctValue);
+		if (i === 1) values.push(correctValue === 0 ? correctValue + 1 : correctValue - 10);
 
 		let next = false;
 		while (!next) {
