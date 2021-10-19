@@ -14,14 +14,16 @@
 	let values = [];
 	let guessedCorrectly;
 
+	const correctValue = toInt($progressStore);
+	console.log('************ ', correctValue);
+
 	onMount(() => {
 		visible = true;
 	});
 
 	for (let i = 0; i < 4; i++) {
-		const correctValue = toInt($progressStore)
 		if (i === 0) values.push(correctValue);
-		if (i === 1) values.push(correctValue === 0 ? correctValue + 1 : correctValue - 10);
+		if (i === 1) values.push(correctValue <= 10 ? correctValue + 1 : correctValue - 5);
 
 		let next = false;
 		while (!next) {
@@ -35,7 +37,7 @@
 	durstenfeldShuffle(values);
 
 	const checkGuess = (guess) => {
-		guessedCorrectly = guess === toInt($progressStore);
+		guessedCorrectly = guess === correctValue;
 		setTimeout(() => {
 			ready = true;
 		}, 1000);
