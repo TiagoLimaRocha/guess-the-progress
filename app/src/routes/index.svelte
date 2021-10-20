@@ -43,10 +43,6 @@
 	};
 </script>
 
-{#if guessedCorrectly}
-	<Confetti />
-{/if}
-
 <section
 	class="relative top-12 lg:top-0 w-full mt-32 mb-12 lg:mt-0 {typeof guessedCorrectly !== 'undefined' && !guessedCorrectly && 'animate-shake'}"
 >
@@ -78,21 +74,25 @@
 				class="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center mx-auto mt-12 lg:mt-24 w-1/2 lg:w-3/4"
 			>
 				<button
+					disabled={guessedCorrectly}
 					on:click={() => checkGuess(values[0])}
 					class="bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer w-full py-12 lg:py-24 shadow text-center text-white rounded-md"
 					>{values[0]}</button
 				>
 				<button
+					disabled={guessedCorrectly}
 					on:click={() => checkGuess(values[1])}
 					class="bg-blue-500 hover:bg-blue-300 hover:cursor-pointer w-full py-12 lg:py-24 shadow text-center text-white rounded-md"
 					>{values[1]}</button
 				>
 				<button
+					disabled={guessedCorrectly}
 					on:click={() => checkGuess(values[2])}
 					class="bg-green-500 hover:bg-green-300 hover:cursor-pointer w-full py-12 lg:py-24 shadow text-center text-white rounded-md"
 					>{values[2]}</button
 				>
 				<button
+					disabled={guessedCorrectly}
 					on:click={() => checkGuess(values[3])}
 					class="bg-red-500 hover:bg-red-300 hover:cursor-pointer w-full py-12 lg:py-24 shadow text-center text-white rounded-md"
 					>{values[3]}</button
@@ -101,3 +101,7 @@
 		{/if}
 	{/if}
 </section>
+
+{#if guessedCorrectly}
+	<Confetti />
+{/if}
